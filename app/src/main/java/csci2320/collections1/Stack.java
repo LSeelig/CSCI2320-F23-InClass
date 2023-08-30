@@ -5,4 +5,10 @@ public interface Stack<E> {
   E pop();
   E peek();
   boolean isEmpty();
+
+  static class StackUnderflowException extends RuntimeException {
+    public StackUnderflowException(String message) {
+      super(message);
+    }
+  }
 }

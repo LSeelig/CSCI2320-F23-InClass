@@ -30,4 +30,19 @@ public class Graphs {
     {0,1,0,1,0,0,1,0,1,0},
     {0,1,0,0,0,0,0,0,1,0}
   };
+
+  public static Graphs makeEmpty() {
+    return new Graphs();
+  }
+
+  public int recursiveDFSShort(List<Set<Integer>> graph, int current, int end) {
+    if (current == end) {
+      return 0;
+    } else {
+      for (int dest: graph.get(current)) {
+        int dist = recursiveDFSShort(graph, dest, end);
+      }
+    }
+    return 0;
+  }
 }

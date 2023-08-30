@@ -5,4 +5,10 @@ public interface Queue<E> {
   E dequeue();
   E peek();
   boolean isEmpty();
+
+  static class EmptyQueueException extends RuntimeException {
+    public EmptyQueueException(String message) {
+      super(message);
+    }
+  }
 }
