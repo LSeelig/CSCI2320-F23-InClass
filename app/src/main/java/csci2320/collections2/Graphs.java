@@ -1,5 +1,6 @@
 package csci2320.collections2;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -35,14 +36,23 @@ public class Graphs {
     return new Graphs();
   }
 
-  public int recursiveDFSShort(List<Set<Integer>> graph, int current, int end) {
+  public static int recursiveDFSShort(List<List<Integer>> graph, int current, int end) {
+    return recursiveDFSShort2(graph, current, end, new HashSet<Integer>());
+  }
+  private static int recursiveDFSShort2(List<List<Integer>> graph, int current, int end, Set<Integer> visited) {
     if (current == end) {
       return 0;
     } else {
+      int minDist = 1000000000;
+      Set<Integer> newVisited = new HashSet<>(visited);
+      newVisited.add(current);
       for (int dest: graph.get(current)) {
-        int dist = recursiveDFSShort(graph, dest, end);
+        if (!newVisited.contains(dest)) {
+          int dist = recursiveDFSShort2(graph, dest, end, newVisited);
+          if (dist < minDist) minDist = dist;
+        }
       }
+      return minDist + 1;
     }
-    return 0;
   }
 }
