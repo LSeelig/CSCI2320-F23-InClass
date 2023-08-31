@@ -1,4 +1,4 @@
-package csci2320;
+package csci2320.collections1;
 
 import org.junit.jupiter.api.Test;
 
