@@ -2,6 +2,7 @@ package csci2320.collections2;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.util.Iterator;
 
@@ -34,8 +35,19 @@ public class LinkedSeqTest {
     assertFalse(iter.hasNext());
   }
 
-  // @Test(expected = IndexOutOfBoundsException.class)
-  // void badIndex() {
-  //   seq.get(-5);
-  // }
+  @Test
+  void badIndex() {
+    assertThrows(IndexOutOfBoundsException.class, () -> seq.get(-5));
+  }
+
+  @Test void testFoldLeft() {
+    seq.add(5);
+    seq.add(10);
+    seq.add(15);
+    assertEquals(30, seq.foldLeft(0, (s, i) -> s + i));
+    assertEquals("51015", seq.foldLeft("", (s, i) -> s + i));
+  }
+
+  // (3, 4, 5, 9, 2, 7, 4).removeWhile(i -> i < 6)  ===> (9, 2, 7, 4)
+  // (3, 4, 5, 9, 2, 7, 4).keepWhile(i -> i < 6)  ===> (3, 4, 5)
 }
