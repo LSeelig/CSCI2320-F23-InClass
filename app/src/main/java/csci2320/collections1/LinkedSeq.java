@@ -2,7 +2,6 @@ package csci2320.collections1;
 
 import java.util.Iterator;
 import java.util.function.BiFunction;
-import java.util.function.Function;
 
 public class LinkedSeq<E> implements Seq<E>, Iterable<E> {
   private static class Node<E> {

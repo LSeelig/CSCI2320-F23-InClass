@@ -1,10 +1,10 @@
-package csci2320.collections2;
+package csci2320.collections3;
 
 import java.util.Iterator;
 
 public interface Map<K, V> {
-  void put(K key, V value);
   V get(K key);
+  void put(K key, V value);
   V remove(K key);
   boolean contains(K key);
   int size();

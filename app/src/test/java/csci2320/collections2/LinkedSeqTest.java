@@ -46,6 +46,7 @@ public class LinkedSeqTest {
     seq.add(15);
     assertEquals(30, seq.foldLeft(0, (s, i) -> s + i));
     assertEquals("51015", seq.foldLeft("", (s, i) -> s + i));
+    assertEquals(15, seq.foldLeft(0, (s, i) -> Math.max(s, i)));
   }
 
   // (3, 4, 5, 9, 2, 7, 4).removeWhile(i -> i < 6)  ===> (9, 2, 7, 4)

@@ -98,4 +98,5 @@ public class LinkedSeq<E> implements Seq<E> {
       }
     };
   }
+
 }
