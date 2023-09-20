@@ -8,6 +8,10 @@ public class ExpressionTree {
     root = parse(expr);
   }
 
+  public ExpressionTree(String... exprs) {
+    root = parse(exprs[0]);
+  }
+
   public double eval() {
     return root.eval();
   }

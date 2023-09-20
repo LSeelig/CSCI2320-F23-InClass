@@ -16,7 +16,7 @@ public class WordCount {
         }
         String allWords = sb.toString();
         String[] words = allWords.split("[,.!?]? +");
-        HashMap<String, Integer> counts = new HashMap<>();
+        java.util.Map<String, Integer> counts = new HashMap<>();
         for (String word : words) {
           String lword = word.toLowerCase();
           counts.put(lword, counts.getOrDefault(lword, 0)+1);

@@ -84,19 +84,21 @@ public class LinkedSeq<E> implements Seq<E> {
   public int size() {
     return numElems;
   }
-  
+
+  public class LinkedListIterator implements Iterator<E> {
+    private Node<E> rover = head;
+    public E next() {
+      var tmp = rover.data;
+      rover = rover.next;
+      return tmp;
+    }
+    public boolean hasNext() {
+      return rover != null;
+    }
+  }
+
   public Iterator<E> iterator() {
-    return new Iterator<E>() {
-      private Node<E> rover = head;
-      public E next() {
-        var tmp = rover.data;
-        rover = rover.next;
-        return tmp;
-      }
-      public boolean hasNext() {
-        return rover != null;
-      }
-    };
+    return new LinkedListIterator();
   }
 
 }

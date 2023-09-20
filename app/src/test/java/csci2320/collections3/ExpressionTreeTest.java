@@ -9,4 +9,8 @@ public class ExpressionTreeTest {
     ExpressionTree et = new ExpressionTree("3+2*5");
     assertEquals(13.0, et.eval());
   }
+
+  void foo() {
+    var et = new ExpressionTree("hi", "there", "Trinity");
+  }
 }
