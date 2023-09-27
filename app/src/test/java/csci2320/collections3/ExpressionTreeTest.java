@@ -10,6 +10,11 @@ public class ExpressionTreeTest {
     assertEquals(13.0, et.eval());
   }
 
+  @Test void parensExpr() {
+    ExpressionTree et = new ExpressionTree("(3+2)*5");
+    assertEquals(25.0, et.eval());
+  }
+
   void foo() {
     var et = new ExpressionTree("hi", "there", "Trinity");
   }

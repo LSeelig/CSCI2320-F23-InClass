@@ -28,7 +28,19 @@ public class ExpressionTree {
         opLoc = i;
       }
     }
-    // TODO
+    if (opLoc == -1) {
+      if (expr.startsWith("(")) return parse(expr.substring(1, expr.length()-1));
+      else return new NumberNode(Double.parseDouble(expr));
+    } else {
+      var left = parse(expr.substring(0, opLoc));
+      var right = parse(expr.substring(opLoc+1));
+      switch (expr.charAt(opLoc)) {
+        case '+': return new BinaryOpNode((x, y) -> x+y, left, right);
+        case '-': return new BinaryOpNode((x, y) -> x-y, left, right);
+        case '*': return new BinaryOpNode((x, y) -> x*y, left, right);
+        case '/': return new BinaryOpNode((x, y) -> x/y, left, right);
+      }
+    }
     return null;
   }
 
