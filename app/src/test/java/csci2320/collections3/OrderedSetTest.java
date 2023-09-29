@@ -33,6 +33,9 @@ public class OrderedSetTest {
     assertTrue(set.add(7));
     assertTrue(set.add(2));
     assertTrue(set.add(6));
+    System.out.println(set.toStringPreorder());
+    System.out.println(set.toStringPostorder());
+    System.out.println(set.toString());
     var subset = set.valuesInRange(4, 6);
     assertFalse(subset.contains(4));
     assertTrue(subset.contains(5));
