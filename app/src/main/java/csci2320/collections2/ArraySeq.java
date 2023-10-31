@@ -5,6 +5,11 @@ public class ArraySeq<E> implements Seq<E> {
   @SuppressWarnings("unchecked")
   private E[] data = (E[]) new Object[10];
 
+  // DON'T DO THIS!!!
+  public E[] getData() {
+    return data;
+  }
+
   @Override
   public E get(int index) {
     if (index < 0 || index >= numElems)

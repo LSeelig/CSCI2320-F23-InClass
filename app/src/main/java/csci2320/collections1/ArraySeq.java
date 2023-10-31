@@ -5,6 +5,31 @@ public class ArraySeq<E> implements Seq<E> {
   private E[] data = (E[]) new Object[10];
   private int numElems = 0;
 
+  // DON'T DO THIS!!!
+  public E[] getData() {
+    return data;// Should be data.clone();
+  }
+
+  public void foo(int a) {
+    // ...
+  }
+  public void foo(String a) {
+    // ...
+  }
+  public void foo(Object o) {
+
+  }
+  public void foo(double x, int a) {
+    // ...
+  }
+  public void bar() {
+    foo(7);
+    Object str = "hi there";
+    foo(str);
+    var arr = new int[10];
+    arr[10] = 5;
+  }
+
   @Override
   public E get(int index) {
     if (index < 0 || index >= numElems)
